@@ -20,7 +20,6 @@ namespace dotNetTips.Benchmark.App
 {
     public class StringsPerfTestRunner : PerfTestRunner
     {
-
         private const string StringBuilderFormat = "value={0} ";
         private readonly int _collectionCount = 100;
         private readonly string _testEmail1 = RandomData.GenerateEmailAddress();
