@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp3.0;net48;netcoreapp2.2;net472</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+    <PublishTrimmed>true</PublishTrimmed>
+    <NullableContextOptions>enable</NullableContextOptions>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Configurations>Release</Configurations>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <Description>Perf Example Code</Description>
+    <Copyright>David McCarter</Copyright>
+    <Authors>David McCarter</Authors>
+    <Company>dotNetTips.com</Company>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.11.5.1161" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.5.1161" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.8.28.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
+  </ItemGroup>
+</Project>
