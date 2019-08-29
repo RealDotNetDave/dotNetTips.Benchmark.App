@@ -20,10 +20,11 @@ namespace dotNetTips.Benchmark.App
 {
     public class StringsPerfTestRunner : PerfTestRunner
     {
+
         private const string StringBuilderFormat = "value={0} ";
         private readonly int _collectionCount = 100;
-        private readonly string _testEmail1 = RandomData.GenerateEmailAddress();
-        private readonly string _testEmail2 = RandomData.GenerateEmailAddress();
+        private readonly string _testWord1 = RandomData.GenerateWord(25);
+        private readonly string _testWord2 = RandomData.GenerateWord(25);
         private string[] _stringArray;
 
         [GlobalSetup]
@@ -33,23 +34,35 @@ namespace dotNetTips.Benchmark.App
 
             for (int i = 0; i < this._collectionCount; i++)
             {
-                strings.Add(RandomData.GenerateWord(10, 25));
+                strings.Add(RandomData.GenerateWord(25));
             }
 
             this._stringArray = strings.ToArray();
 
         }
 
+        [Benchmark(Description = "COMBINE STRINGS:2 strings with string.Concat()")]
+        public string TestCombineStrings02()
+        {
+            return string.Concat(_testWord1, _testWord2);
+        }
+
+        [Benchmark(Description = "COMBINE STRINGS:2 strings with string.Join()")]
+        public string TestCombineStrings03()
+        {
+            return string.Join(string.Empty, _testWord1, _testWord2);
+        }
+
         [Benchmark(Description = "EMPTY STRING VALIDATION:IsNullOrEmpty()")]
         public bool TestEmptyStringValidation01()
         {
-            return string.IsNullOrEmpty(this._testEmail1);
+            return string.IsNullOrEmpty(this._testWord1);
         }
 
         [Benchmark(Description = "EMPTY STRING VALIDATION:IsNullOrWhitespace()")]
         public bool TestEmptyStringValidation02()
         {
-            return string.IsNullOrWhiteSpace(this._testEmail1);
+            return string.IsNullOrWhiteSpace(this._testWord1);
         }
 
         [Benchmark(Description = "STRINGBUILDER:Append()")]
@@ -94,13 +107,13 @@ namespace dotNetTips.Benchmark.App
         [Benchmark(Description = "STRING VALIDATION:Equals()")]
         public bool TestStringWithEquals01()
         {
-            return this._testEmail1.Equals(this._testEmail2);
+            return this._testWord1.Equals(this._testWord2);
         }
 
         [Benchmark(Description = "STRING VALIDATION:==")]
         public bool TestStringWithEquals02()
         {
-            return this._testEmail1 == this._testEmail2 ? true : false;
+            return this._testWord1 == this._testWord2 ? true : false;
         }
 
     }

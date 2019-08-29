@@ -21,14 +21,14 @@ namespace dotNetTips.Benchmark.App
     /// Implements the <see cref="Object" />
     /// </summary>
     /// <seealso cref="Object" />
-    [CategoriesColumn]
+    //[CategoriesColumn]
     [EvaluateOverhead]
     [GcServer(true)]
     [HtmlExporter()]
     [Orderer(SummaryOrderPolicy.Method)]
     [RankColumn()]
     [CsvExporter()]
-    [CsvMeasurementsExporter]
+    //[CsvMeasurementsExporter]
     //[RPlotExporter]
     //[DisassemblyDiagnoser(printSource: true, printIL: true, printDiff: true, printPrologAndEpilog: true)]
     //[ConcurrencyVisualizerProfiler()]
