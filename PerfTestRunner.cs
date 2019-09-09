@@ -25,7 +25,7 @@ namespace dotNetTips.Benchmark.App
     [EvaluateOverhead]
     [GcServer(true)]
     [HtmlExporter()]
-    [Orderer(SummaryOrderPolicy.Method)]
+    //[Orderer(SummaryOrderPolicy.Method)]
     [RankColumn()]
     [CsvExporter()]
     //[CsvMeasurementsExporter]

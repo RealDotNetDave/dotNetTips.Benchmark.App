@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp3.0;net48;netcoreapp2.2;net472</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;net48;netcoreapp2.2</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <PublishTrimmed>true</PublishTrimmed>
     <NullableContextOptions>enable</NullableContextOptions>
@@ -18,9 +18,9 @@
     <Company>dotNetTips.com</Company>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.11.5.1161" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.5.1161" />
-    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.8.28.1" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.11.5.1163" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.5.1163" />
+    <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.8.31.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>dotNetTips.Benchmark.App.StringsPerfTestRunner-20190902-141047</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5.1161-nightly, OS=Windows 10.0.17763.678 (1809/October2018Update/Redstone5)
+Unknown processor
+.NET Core SDK=3.0.100-preview8-013656
+  [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.37902, CoreFX 4.700.19.40503), X64 RyuJIT
+  Job-ITKQKJ : .NET Core 2.2.0 (CoreCLR 4.6.27110.04, CoreFX 4.6.27110.04), X64 RyuJIT
+  Job-VHFKBN : .NET Core 3.0.0 (CoreCLR 4.700.19.37902, CoreFX 4.700.19.40503), X64 RyuJIT
+  Job-DECCFI : .NET Framework 4.8 (4.8.3801.0), X64 RyuJIT
+  Job-RXKYBM : .NET Framework 4.8 (4.8.3801.0), X64 RyuJIT
+</code></pre>
+<pre><code>EvaluateOverhead=True  Server=True  
+</code></pre>
+
+<table>
+<thead><tr><th>                                        Method</th><th>Toolchain</th><th>    Mean</th><th>Error</th><th>StdDev</th><th>Rank</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>&#39;COMBINE STRINGS:2 Strings with +&#39;</td><td>.NET Core 2.2</td><td>21.3385 ns</td><td>0.1550 ns</td><td>0.1450 ns</td><td>17</td><td>0.0063</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 Strings with +&#39;</td><td>.NET Core 3.0</td><td>21.5285 ns</td><td>0.0510 ns</td><td>0.0477 ns</td><td>17</td><td>0.0134</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 Strings with +&#39;</td><td>net472</td><td>17.4502 ns</td><td>0.1810 ns</td><td>0.1693 ns</td><td>15</td><td>0.0612</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 Strings with +&#39;</td><td>net48</td><td>17.4204 ns</td><td>0.0314 ns</td><td>0.0293 ns</td><td>15</td><td>0.0612</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 strings with string.Concat()&#39;</td><td>.NET Core 2.2</td><td>22.6078 ns</td><td>0.0784 ns</td><td>0.0733 ns</td><td>18</td><td>0.0062</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 strings with string.Concat()&#39;</td><td>.NET Core 3.0</td><td>22.4144 ns</td><td>0.0831 ns</td><td>0.0694 ns</td><td>18</td><td>0.0134</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 strings with string.Concat()&#39;</td><td>net472</td><td>19.9203 ns</td><td>0.0436 ns</td><td>0.0364 ns</td><td>16</td><td>0.0612</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;COMBINE STRINGS:2 strings with string.Concat()&#39;</td><td>net48</td><td>17.3739 ns</td><td>0.0522 ns</td><td>0.0436 ns</td><td>15</td><td>0.0612</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF32&#39;</td><td>.NET Core 2.2</td><td>15,769.0277 ns</td><td>16.1632 ns</td><td>14.3283 ns</td><td>37</td><td>0.0610</td><td>-</td><td>-</td><td>2096 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF32&#39;</td><td>.NET Core 3.0</td><td>15,454.3048 ns</td><td>57.2227 ns</td><td>53.5262 ns</td><td>36</td><td>0.2136</td><td>-</td><td>-</td><td>2144 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF32&#39;</td><td>net472</td><td>15,574.7807 ns</td><td>20.1826 ns</td><td>17.8913 ns</td><td>36</td><td>0.9766</td><td>-</td><td>-</td><td>2103 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF32&#39;</td><td>net48</td><td>15,560.7474 ns</td><td>9.6578 ns</td><td>8.0647 ns</td><td>36</td><td>0.9918</td><td>-</td><td>-</td><td>2103 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF7&#39;</td><td>.NET Core 2.2</td><td>7,467.8024 ns</td><td>68.8045 ns</td><td>60.9934 ns</td><td>31</td><td>0.0916</td><td>-</td><td>-</td><td>2288 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF7&#39;</td><td>.NET Core 3.0</td><td>8,579.3968 ns</td><td>32.7678 ns</td><td>30.6511 ns</td><td>34</td><td>0.2441</td><td>-</td><td>-</td><td>2320 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF7&#39;</td><td>net472</td><td>7,920.9096 ns</td><td>84.5409 ns</td><td>79.0796 ns</td><td>32</td><td>1.0834</td><td>-</td><td>-</td><td>2296 B</td>
+</tr><tr><td>&#39;DECODING STRING:Encoding.UTF7&#39;</td><td>net48</td><td>7,752.0123 ns</td><td>11.3630 ns</td><td>10.6290 ns</td><td>32</td><td>1.0834</td><td>-</td><td>-</td><td>2296 B</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrEmpty()&#39;</td><td>.NET Core 2.2</td><td>0.5142 ns</td><td>0.0060 ns</td><td>0.0056 ns</td><td>4</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrEmpty()&#39;</td><td>.NET Core 3.0</td><td>0.3141 ns</td><td>0.0060 ns</td><td>0.0056 ns</td><td>3</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrEmpty()&#39;</td><td>net472</td><td>0.2690 ns</td><td>0.0339 ns</td><td>0.0318 ns</td><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrEmpty()&#39;</td><td>net48</td><td>0.3010 ns</td><td>0.0071 ns</td><td>0.0066 ns</td><td>2</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrWhitespace()&#39;</td><td>.NET Core 2.2</td><td>2.0813 ns</td><td>0.0249 ns</td><td>0.0233 ns</td><td>5</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrWhitespace()&#39;</td><td>.NET Core 3.0</td><td>2.4585 ns</td><td>0.0285 ns</td><td>0.0267 ns</td><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrWhitespace()&#39;</td><td>net472</td><td>2.7222 ns</td><td>0.0656 ns</td><td>0.0613 ns</td><td>10</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;EMPTY STRING VALIDATION:IsNullOrWhitespace()&#39;</td><td>net48</td><td>2.6538 ns</td><td>0.0083 ns</td><td>0.0078 ns</td><td>10</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF32&#39;</td><td>.NET Core 2.2</td><td>7,823.7376 ns</td><td>78.2184 ns</td><td>73.1656 ns</td><td>32</td><td>0.1678</td><td>-</td><td>-</td><td>4168 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF32&#39;</td><td>.NET Core 3.0</td><td>8,364.4439 ns</td><td>51.7889 ns</td><td>48.4434 ns</td><td>33</td><td>0.4425</td><td>-</td><td>-</td><td>4200 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF32&#39;</td><td>net472</td><td>7,877.4172 ns</td><td>23.7706 ns</td><td>19.8496 ns</td><td>32</td><td>1.9836</td><td>-</td><td>-</td><td>4186 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF32&#39;</td><td>net48</td><td>7,889.3058 ns</td><td>10.3933 ns</td><td>9.7219 ns</td><td>32</td><td>1.9836</td><td>-</td><td>-</td><td>4186 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF7&#39;</td><td>.NET Core 2.2</td><td>15,407.2902 ns</td><td>26.1613 ns</td><td>24.4713 ns</td><td>36</td><td>0.0305</td><td>-</td><td>-</td><td>1360 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF7&#39;</td><td>.NET Core 3.0</td><td>18,693.1755 ns</td><td>60.2560 ns</td><td>56.3635 ns</td><td>40</td><td>0.1221</td><td>-</td><td>-</td><td>1392 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF7&#39;</td><td>net472</td><td>16,396.9881 ns</td><td>42.0272 ns</td><td>39.3122 ns</td><td>39</td><td>0.6409</td><td>-</td><td>-</td><td>1364 B</td>
+</tr><tr><td>&#39;ENCODING STRING:Encoding.UTF7&#39;</td><td>net48</td><td>15,978.1311 ns</td><td>60.2284 ns</td><td>50.2934 ns</td><td>38</td><td>0.6409</td><td>-</td><td>-</td><td>1364 B</td>
+</tr><tr><td>&#39;STRING VALIDATION:==&#39;</td><td>.NET Core 2.2</td><td>4.0111 ns</td><td>0.0138 ns</td><td>0.0122 ns</td><td>13</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:==&#39;</td><td>.NET Core 3.0</td><td>4.1467 ns</td><td>0.0384 ns</td><td>0.0360 ns</td><td>14</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:==&#39;</td><td>net472</td><td>2.5570 ns</td><td>0.0028 ns</td><td>0.0023 ns</td><td>9</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:==&#39;</td><td>net48</td><td>2.5481 ns</td><td>0.0014 ns</td><td>0.0013 ns</td><td>9</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals()&#39;</td><td>.NET Core 2.2</td><td>3.5095 ns</td><td>0.0328 ns</td><td>0.0306 ns</td><td>12</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals()&#39;</td><td>.NET Core 3.0</td><td>3.3134 ns</td><td>0.0224 ns</td><td>0.0210 ns</td><td>11</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals()&#39;</td><td>net472</td><td>2.5054 ns</td><td>0.0014 ns</td><td>0.0011 ns</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals()&#39;</td><td>net48</td><td>2.4090 ns</td><td>0.0012 ns</td><td>0.0010 ns</td><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals(CurrentCultureIgnoreCase)&#39;</td><td>.NET Core 2.2</td><td>80.4732 ns</td><td>0.3479 ns</td><td>0.2905 ns</td><td>22</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals(CurrentCultureIgnoreCase)&#39;</td><td>.NET Core 3.0</td><td>51.2711 ns</td><td>0.6996 ns</td><td>0.6202 ns</td><td>19</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals(CurrentCultureIgnoreCase)&#39;</td><td>net472</td><td>71.0586 ns</td><td>0.1891 ns</td><td>0.1769 ns</td><td>21</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;STRING VALIDATION:Equals(CurrentCultureIgnoreCase)&#39;</td><td>net48</td><td>70.0262 ns</td><td>0.2937 ns</td><td>0.2747 ns</td><td>20</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>STRINGBUILDER:Append()</td><td>.NET Core 2.2</td><td>2,065.2096 ns</td><td>5.2606 ns</td><td>4.9208 ns</td><td>26</td><td>0.6599</td><td>0.0114</td><td>-</td><td>13872 B</td>
+</tr><tr><td>STRINGBUILDER:Append()</td><td>.NET Core 3.0</td><td>2,088.0319 ns</td><td>13.8286 ns</td><td>12.9353 ns</td><td>26</td><td>1.4534</td><td>0.0343</td><td>-</td><td>13864 B</td>
+</tr><tr><td>STRINGBUILDER:Append()</td><td>net472</td><td>1,680.6419 ns</td><td>11.7812 ns</td><td>11.0201 ns</td><td>24</td><td>6.6223</td><td>-</td><td>-</td><td>13922 B</td>
+</tr><tr><td>STRINGBUILDER:Append()</td><td>net48</td><td>1,604.1819 ns</td><td>2.5298 ns</td><td>2.2426 ns</td><td>23</td><td>6.6223</td><td>-</td><td>-</td><td>13916 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat()</td><td>.NET Core 2.2</td><td>7,811.4632 ns</td><td>34.9163 ns</td><td>30.9524 ns</td><td>32</td><td>0.6409</td><td>-</td><td>-</td><td>15272 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat()</td><td>.NET Core 3.0</td><td>7,085.8230 ns</td><td>136.9038 ns</td><td>140.5901 ns</td><td>30</td><td>1.6022</td><td>0.0305</td><td>-</td><td>15264 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat()</td><td>net472</td><td>5,263.6382 ns</td><td>70.1327 ns</td><td>65.6021 ns</td><td>29</td><td>7.2937</td><td>-</td><td>-</td><td>15323 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat()</td><td>net48</td><td>5,242.5856 ns</td><td>8.0858 ns</td><td>7.1678 ns</td><td>29</td><td>7.2937</td><td>-</td><td>-</td><td>15323 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat(CurrentCulture)</td><td>.NET Core 2.2</td><td>9,849.6741 ns</td><td>28.3412 ns</td><td>26.5104 ns</td><td>35</td><td>0.6561</td><td>-</td><td>-</td><td>15272 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat(CurrentCulture)</td><td>.NET Core 3.0</td><td>8,268.6767 ns</td><td>24.8696 ns</td><td>23.2631 ns</td><td>33</td><td>1.6022</td><td>0.0305</td><td>-</td><td>15264 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat(CurrentCulture)</td><td>net472</td><td>7,033.1922 ns</td><td>3.3274 ns</td><td>2.7785 ns</td><td>30</td><td>7.2937</td><td>-</td><td>-</td><td>15323 B</td>
+</tr><tr><td>STRINGBUILDER:AppendFormat(CurrentCulture)</td><td>net48</td><td>7,062.4557 ns</td><td>18.2550 ns</td><td>16.1825 ns</td><td>30</td><td>7.2937</td><td>-</td><td>-</td><td>15323 B</td>
+</tr><tr><td>STRINGBUILDER:AppendLine()</td><td>.NET Core 2.2</td><td>2,500.5938 ns</td><td>5.9910 ns</td><td>5.0027 ns</td><td>27</td><td>0.6981</td><td>0.0153</td><td>-</td><td>14272 B</td>
+</tr><tr><td>STRINGBUILDER:AppendLine()</td><td>.NET Core 3.0</td><td>2,571.0325 ns</td><td>21.7779 ns</td><td>20.3710 ns</td><td>28</td><td>1.4992</td><td>0.0381</td><td>-</td><td>14264 B</td>
+</tr><tr><td>STRINGBUILDER:AppendLine()</td><td>net472</td><td>2,092.7512 ns</td><td>15.4851 ns</td><td>14.4847 ns</td><td>26</td><td>6.8169</td><td>-</td><td>-</td><td>14323 B</td>
+</tr><tr><td>STRINGBUILDER:AppendLine()</td><td>net48</td><td>2,010.4096 ns</td><td>2.5718 ns</td><td>2.2798 ns</td><td>25</td><td>6.8169</td><td>-</td><td>-</td><td>14323 B</td>
+</tr></tbody></table>
+</body>
+</html>

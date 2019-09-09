@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>dotNetTips.Benchmark.App.CollectionPerfTestRunner-20190902-131944</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5.1161-nightly, OS=Windows 10.0.17763.678 (1809/October2018Update/Redstone5)
+Unknown processor
+.NET Core SDK=3.0.100-preview8-013656
+  [Host]     : .NET Core 3.0.0 (CoreCLR 4.700.19.37902, CoreFX 4.700.19.40503), X64 RyuJIT
+  Job-ITKQKJ : .NET Core 2.2.0 (CoreCLR 4.6.27110.04, CoreFX 4.6.27110.04), X64 RyuJIT
+  Job-VHFKBN : .NET Core 3.0.0 (CoreCLR 4.700.19.37902, CoreFX 4.700.19.40503), X64 RyuJIT
+  Job-DECCFI : .NET Framework 4.8 (4.8.3801.0), X64 RyuJIT
+  Job-RXKYBM : .NET Framework 4.8 (4.8.3801.0), X64 RyuJIT
+</code></pre>
+<pre><code>EvaluateOverhead=True  Server=True  
+</code></pre>
+
+<table>
+<thead><tr><th>                   Method</th><th>Toolchain</th><th>Count</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>CREATION:for()</td><td>.NET Core 2.2</td><td>100</td><td>1,132.8 ns</td><td>4.84 ns</td><td>4.53 ns</td><td>1,130.4 ns</td><td>6</td><td>0.0973</td><td>-</td><td>-</td><td>2200 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 3.0</td><td>100</td><td>963.9 ns</td><td>3.30 ns</td><td>2.92 ns</td><td>962.5 ns</td><td>4</td><td>0.2289</td><td>-</td><td>-</td><td>2192 B</td>
+</tr><tr><td>CREATION:for()</td><td>net472</td><td>100</td><td>1,028.2 ns</td><td>2.77 ns</td><td>2.31 ns</td><td>1,028.1 ns</td><td>5</td><td>1.0509</td><td>-</td><td>-</td><td>2207 B</td>
+</tr><tr><td>CREATION:for()</td><td>net48</td><td>100</td><td>1,019.6 ns</td><td>1.15 ns</td><td>1.02 ns</td><td>1,019.6 ns</td><td>5</td><td>1.0509</td><td>-</td><td>-</td><td>2207 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 2.2</td><td>500</td><td>4,112.9 ns</td><td>19.66 ns</td><td>18.39 ns</td><td>4,117.3 ns</td><td>24</td><td>0.4120</td><td>-</td><td>-</td><td>8392 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 3.0</td><td>500</td><td>3,810.6 ns</td><td>10.84 ns</td><td>10.14 ns</td><td>3,809.5 ns</td><td>21</td><td>0.8774</td><td>-</td><td>-</td><td>8384 B</td>
+</tr><tr><td>CREATION:for()</td><td>net472</td><td>500</td><td>4,531.7 ns</td><td>7.44 ns</td><td>6.96 ns</td><td>4,530.4 ns</td><td>26</td><td>4.0054</td><td>-</td><td>-</td><td>8418 B</td>
+</tr><tr><td>CREATION:for()</td><td>net48</td><td>500</td><td>4,419.2 ns</td><td>7.10 ns</td><td>6.64 ns</td><td>4,419.1 ns</td><td>25</td><td>4.0054</td><td>-</td><td>-</td><td>8418 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 2.2</td><td>1000</td><td>7,815.8 ns</td><td>11.44 ns</td><td>10.14 ns</td><td>7,816.6 ns</td><td>35</td><td>0.6409</td><td>-</td><td>-</td><td>16608 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 3.0</td><td>1000</td><td>7,916.2 ns</td><td>20.76 ns</td><td>19.42 ns</td><td>7,909.8 ns</td><td>35</td><td>1.8768</td><td>0.0153</td><td>-</td><td>16600 B</td>
+</tr><tr><td>CREATION:for()</td><td>net472</td><td>1000</td><td>8,560.1 ns</td><td>18.47 ns</td><td>17.28 ns</td><td>8,555.9 ns</td><td>39</td><td>7.9346</td><td>-</td><td>-</td><td>16661 B</td>
+</tr><tr><td>CREATION:for()</td><td>net48</td><td>1000</td><td>8,634.4 ns</td><td>97.29 ns</td><td>91.01 ns</td><td>8,592.0 ns</td><td>39</td><td>7.9346</td><td>-</td><td>-</td><td>16661 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 2.2</td><td>2500</td><td>21,614.5 ns</td><td>384.88 ns</td><td>360.02 ns</td><td>21,914.0 ns</td><td>52</td><td>2.4719</td><td>0.1221</td><td>-</td><td>65808 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 3.0</td><td>2500</td><td>22,814.7 ns</td><td>174.77 ns</td><td>163.48 ns</td><td>22,878.9 ns</td><td>53</td><td>6.5002</td><td>0.2747</td><td>-</td><td>65800 B</td>
+</tr><tr><td>CREATION:for()</td><td>net472</td><td>2500</td><td>24,170.4 ns</td><td>308.90 ns</td><td>288.94 ns</td><td>24,097.8 ns</td><td>54</td><td>31.2195</td><td>-</td><td>-</td><td>65936 B</td>
+</tr><tr><td>CREATION:for()</td><td>net48</td><td>2500</td><td>24,569.3 ns</td><td>55.79 ns</td><td>52.19 ns</td><td>24,571.9 ns</td><td>54</td><td>31.2195</td><td>-</td><td>-</td><td>65936 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 2.2</td><td>5000</td><td>43,264.5 ns</td><td>740.70 ns</td><td>692.85 ns</td><td>42,839.5 ns</td><td>64</td><td>6.3477</td><td>0.8545</td><td>-</td><td>131368 B</td>
+</tr><tr><td>CREATION:for()</td><td>.NET Core 3.0</td><td>5000</td><td>46,361.8 ns</td><td>341.92 ns</td><td>319.83 ns</td><td>46,210.9 ns</td><td>65</td><td>13.1226</td><td>1.5869</td><td>-</td><td>131360 B</td>
+</tr><tr><td>CREATION:for()</td><td>net472</td><td>5000</td><td>50,440.5 ns</td><td>141.00 ns</td><td>124.99 ns</td><td>50,443.6 ns</td><td>66</td><td>62.4390</td><td>-</td><td>-</td><td>131520 B</td>
+</tr><tr><td>CREATION:for()</td><td>net48</td><td>5000</td><td>50,296.4 ns</td><td>81.73 ns</td><td>72.45 ns</td><td>50,301.8 ns</td><td>66</td><td>62.3779</td><td>-</td><td>-</td><td>131520 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 2.2</td><td>100</td><td>748.4 ns</td><td>8.53 ns</td><td>7.98 ns</td><td>751.1 ns</td><td>2</td><td>0.0372</td><td>-</td><td>-</td><td>864 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 3.0</td><td>100</td><td>676.6 ns</td><td>10.27 ns</td><td>9.10 ns</td><td>676.3 ns</td><td>1</td><td>0.0896</td><td>-</td><td>-</td><td>856 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net472</td><td>100</td><td>802.1 ns</td><td>1.41 ns</td><td>1.25 ns</td><td>802.1 ns</td><td>3</td><td>0.4129</td><td>-</td><td>-</td><td>867 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net48</td><td>100</td><td>798.7 ns</td><td>1.12 ns</td><td>0.94 ns</td><td>798.5 ns</td><td>3</td><td>0.4129</td><td>-</td><td>-</td><td>867 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 2.2</td><td>500</td><td>3,419.9 ns</td><td>4.39 ns</td><td>4.10 ns</td><td>3,419.3 ns</td><td>20</td><td>0.1831</td><td>-</td><td>-</td><td>4064 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 3.0</td><td>500</td><td>3,200.9 ns</td><td>6.10 ns</td><td>5.41 ns</td><td>3,201.1 ns</td><td>19</td><td>0.4234</td><td>-</td><td>-</td><td>4048 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net472</td><td>500</td><td>4,050.7 ns</td><td>7.08 ns</td><td>6.62 ns</td><td>4,050.0 ns</td><td>23</td><td>1.9379</td><td>-</td><td>-</td><td>4080 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net48</td><td>500</td><td>3,956.1 ns</td><td>8.17 ns</td><td>7.24 ns</td><td>3,955.3 ns</td><td>22</td><td>1.9379</td><td>-</td><td>-</td><td>4080 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 2.2</td><td>1000</td><td>6,885.1 ns</td><td>87.92 ns</td><td>82.24 ns</td><td>6,910.7 ns</td><td>33</td><td>0.3357</td><td>-</td><td>-</td><td>8064 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 3.0</td><td>1000</td><td>6,464.0 ns</td><td>10.63 ns</td><td>9.42 ns</td><td>6,465.0 ns</td><td>32</td><td>0.8469</td><td>0.0076</td><td>-</td><td>8056 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net472</td><td>1000</td><td>7,880.1 ns</td><td>6.50 ns</td><td>5.76 ns</td><td>7,880.9 ns</td><td>35</td><td>3.8452</td><td>-</td><td>-</td><td>8097 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net48</td><td>1000</td><td>7,856.1 ns</td><td>11.18 ns</td><td>9.91 ns</td><td>7,855.9 ns</td><td>35</td><td>3.8452</td><td>-</td><td>-</td><td>8097 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 2.2</td><td>2500</td><td>17,585.3 ns</td><td>44.11 ns</td><td>41.26 ns</td><td>17,593.0 ns</td><td>48</td><td>0.7935</td><td>-</td><td>-</td><td>20056 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 3.0</td><td>2500</td><td>16,988.9 ns</td><td>28.77 ns</td><td>24.02 ns</td><td>16,987.9 ns</td><td>47</td><td>2.0447</td><td>0.0610</td><td>-</td><td>20056 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net472</td><td>2500</td><td>20,658.4 ns</td><td>43.93 ns</td><td>41.09 ns</td><td>20,660.7 ns</td><td>51</td><td>9.5215</td><td>-</td><td>-</td><td>20126 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net48</td><td>2500</td><td>20,618.2 ns</td><td>39.53 ns</td><td>36.97 ns</td><td>20,616.6 ns</td><td>51</td><td>9.5215</td><td>-</td><td>-</td><td>20126 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 2.2</td><td>5000</td><td>33,726.0 ns</td><td>29.65 ns</td><td>27.73 ns</td><td>33,724.0 ns</td><td>59</td><td>1.4648</td><td>-</td><td>-</td><td>40064 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>.NET Core 3.0</td><td>5000</td><td>35,011.1 ns</td><td>165.53 ns</td><td>154.84 ns</td><td>35,011.5 ns</td><td>60</td><td>3.9673</td><td>0.2441</td><td>-</td><td>40048 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net472</td><td>5000</td><td>41,756.6 ns</td><td>54.97 ns</td><td>51.42 ns</td><td>41,746.1 ns</td><td>63</td><td>18.8599</td><td>-</td><td>-</td><td>40195 B</td>
+</tr><tr><td>&#39;CREATION:for() with Capacity&#39;</td><td>net48</td><td>5000</td><td>41,880.1 ns</td><td>77.78 ns</td><td>68.95 ns</td><td>41,877.6 ns</td><td>63</td><td>18.8599</td><td>-</td><td>-</td><td>40203 B</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 2.2</td><td>100</td><td>4,706.6 ns</td><td>93.65 ns</td><td>193.40 ns</td><td>4,598.6 ns</td><td>27</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 3.0</td><td>100</td><td>2,576.7 ns</td><td>3.16 ns</td><td>2.96 ns</td><td>2,577.4 ns</td><td>15</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net472</td><td>100</td><td>1,616.4 ns</td><td>4.64 ns</td><td>3.88 ns</td><td>1,614.9 ns</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net48</td><td>100</td><td>1,614.5 ns</td><td>1.25 ns</td><td>1.05 ns</td><td>1,614.4 ns</td><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 2.2</td><td>500</td><td>21,603.7 ns</td><td>46.36 ns</td><td>41.09 ns</td><td>21,602.7 ns</td><td>52</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 3.0</td><td>500</td><td>13,430.1 ns</td><td>47.99 ns</td><td>42.54 ns</td><td>13,428.9 ns</td><td>43</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net472</td><td>500</td><td>8,029.1 ns</td><td>9.99 ns</td><td>9.34 ns</td><td>8,024.7 ns</td><td>36</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net48</td><td>500</td><td>8,028.7 ns</td><td>7.11 ns</td><td>6.30 ns</td><td>8,026.3 ns</td><td>36</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 2.2</td><td>1000</td><td>43,128.5 ns</td><td>586.44 ns</td><td>519.86 ns</td><td>43,449.5 ns</td><td>64</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 3.0</td><td>1000</td><td>26,464.4 ns</td><td>24.01 ns</td><td>21.28 ns</td><td>26,463.8 ns</td><td>55</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net472</td><td>1000</td><td>16,047.6 ns</td><td>4.51 ns</td><td>4.00 ns</td><td>16,048.2 ns</td><td>46</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net48</td><td>1000</td><td>16,047.6 ns</td><td>16.36 ns</td><td>15.30 ns</td><td>16,042.0 ns</td><td>46</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 2.2</td><td>2500</td><td>108,076.5 ns</td><td>204.96 ns</td><td>191.72 ns</td><td>108,038.9 ns</td><td>77</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 3.0</td><td>2500</td><td>63,382.9 ns</td><td>716.86 ns</td><td>670.55 ns</td><td>63,713.8 ns</td><td>68</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net472</td><td>2500</td><td>40,788.6 ns</td><td>35.72 ns</td><td>33.41 ns</td><td>40,773.2 ns</td><td>62</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net48</td><td>2500</td><td>40,131.6 ns</td><td>37.27 ns</td><td>34.86 ns</td><td>40,122.7 ns</td><td>61</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 2.2</td><td>5000</td><td>221,480.8 ns</td><td>1,376.79 ns</td><td>1,287.85 ns</td><td>221,803.0 ns</td><td>88</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>.NET Core 3.0</td><td>5000</td><td>129,997.7 ns</td><td>407.24 ns</td><td>361.01 ns</td><td>130,036.3 ns</td><td>80</td><td>-</td><td>-</td><td>-</td><td>2 B</td>
+</tr><tr><td>for():Collection</td><td>net472</td><td>5000</td><td>80,308.5 ns</td><td>91.68 ns</td><td>76.56 ns</td><td>80,290.0 ns</td><td>71</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():Collection</td><td>net48</td><td>5000</td><td>81,582.9 ns</td><td>85.96 ns</td><td>80.40 ns</td><td>81,555.0 ns</td><td>72</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 2.2</td><td>100</td><td>2,464.0 ns</td><td>2.56 ns</td><td>2.39 ns</td><td>2,463.6 ns</td><td>14</td><td>0.1030</td><td>-</td><td>-</td><td>2424 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 3.0</td><td>100</td><td>1,827.0 ns</td><td>12.94 ns</td><td>12.10 ns</td><td>1,829.2 ns</td><td>11</td><td>0.2537</td><td>-</td><td>-</td><td>2424 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net472</td><td>100</td><td>1,514.7 ns</td><td>19.98 ns</td><td>18.69 ns</td><td>1,526.6 ns</td><td>7</td><td>1.1578</td><td>-</td><td>-</td><td>2431 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net48</td><td>100</td><td>1,511.7 ns</td><td>4.59 ns</td><td>4.29 ns</td><td>1,510.8 ns</td><td>7</td><td>1.1578</td><td>-</td><td>-</td><td>2431 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 2.2</td><td>500</td><td>11,790.1 ns</td><td>121.18 ns</td><td>113.35 ns</td><td>11,834.7 ns</td><td>42</td><td>0.5035</td><td>-</td><td>-</td><td>12024 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 3.0</td><td>500</td><td>9,237.6 ns</td><td>30.81 ns</td><td>28.82 ns</td><td>9,239.0 ns</td><td>40</td><td>1.2512</td><td>-</td><td>-</td><td>12024 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net472</td><td>500</td><td>7,469.4 ns</td><td>14.61 ns</td><td>12.20 ns</td><td>7,472.2 ns</td><td>34</td><td>5.7449</td><td>-</td><td>-</td><td>12060 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net48</td><td>500</td><td>7,542.6 ns</td><td>99.86 ns</td><td>93.41 ns</td><td>7,493.8 ns</td><td>34</td><td>5.7449</td><td>-</td><td>-</td><td>12060 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 2.2</td><td>1000</td><td>24,361.7 ns</td><td>54.39 ns</td><td>45.42 ns</td><td>24,355.0 ns</td><td>54</td><td>0.9460</td><td>-</td><td>-</td><td>24000 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 3.0</td><td>1000</td><td>18,032.9 ns</td><td>65.75 ns</td><td>61.51 ns</td><td>18,032.7 ns</td><td>49</td><td>2.5024</td><td>-</td><td>-</td><td>24000 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net472</td><td>1000</td><td>15,820.8 ns</td><td>30.97 ns</td><td>28.97 ns</td><td>15,815.9 ns</td><td>46</td><td>11.4746</td><td>-</td><td>-</td><td>24095 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net48</td><td>1000</td><td>15,304.2 ns</td><td>33.56 ns</td><td>31.39 ns</td><td>15,299.2 ns</td><td>45</td><td>11.4746</td><td>-</td><td>-</td><td>24095 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 2.2</td><td>2500</td><td>64,298.8 ns</td><td>275.02 ns</td><td>243.79 ns</td><td>64,310.1 ns</td><td>68</td><td>2.4414</td><td>-</td><td>-</td><td>60024 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 3.0</td><td>2500</td><td>46,621.5 ns</td><td>582.83 ns</td><td>545.18 ns</td><td>46,853.3 ns</td><td>65</td><td>6.2866</td><td>-</td><td>-</td><td>60024 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net472</td><td>2500</td><td>40,598.5 ns</td><td>439.01 ns</td><td>410.65 ns</td><td>40,793.0 ns</td><td>62</td><td>28.6865</td><td>-</td><td>-</td><td>60177 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net48</td><td>2500</td><td>40,090.5 ns</td><td>98.26 ns</td><td>91.91 ns</td><td>40,090.9 ns</td><td>61</td><td>28.6865</td><td>-</td><td>-</td><td>60201 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 2.2</td><td>5000</td><td>128,421.4 ns</td><td>1,377.92 ns</td><td>1,288.90 ns</td><td>128,738.2 ns</td><td>80</td><td>4.8828</td><td>-</td><td>-</td><td>120024 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>.NET Core 3.0</td><td>5000</td><td>94,182.8 ns</td><td>484.37 ns</td><td>453.08 ns</td><td>94,155.0 ns</td><td>75</td><td>12.5732</td><td>-</td><td>-</td><td>120001 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net472</td><td>5000</td><td>81,517.5 ns</td><td>121.45 ns</td><td>113.61 ns</td><td>81,483.5 ns</td><td>72</td><td>57.3730</td><td>-</td><td>-</td><td>120355 B</td>
+</tr><tr><td>for():ImmutableArray</td><td>net48</td><td>5000</td><td>82,763.6 ns</td><td>152.01 ns</td><td>142.19 ns</td><td>82,781.2 ns</td><td>73</td><td>57.3730</td><td>-</td><td>-</td><td>120355 B</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 2.2</td><td>100</td><td>8,211.4 ns</td><td>108.94 ns</td><td>96.57 ns</td><td>8,169.1 ns</td><td>37</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 3.0</td><td>100</td><td>3,979.0 ns</td><td>26.46 ns</td><td>22.10 ns</td><td>3,978.4 ns</td><td>22</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net472</td><td>100</td><td>2,984.7 ns</td><td>30.09 ns</td><td>28.14 ns</td><td>2,990.9 ns</td><td>18</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net48</td><td>100</td><td>2,898.9 ns</td><td>27.37 ns</td><td>22.86 ns</td><td>2,902.5 ns</td><td>17</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 2.2</td><td>500</td><td>41,696.8 ns</td><td>121.66 ns</td><td>94.98 ns</td><td>41,661.7 ns</td><td>63</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 3.0</td><td>500</td><td>31,722.5 ns</td><td>547.92 ns</td><td>512.53 ns</td><td>31,874.8 ns</td><td>57</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net472</td><td>500</td><td>22,090.6 ns</td><td>158.10 ns</td><td>132.02 ns</td><td>22,049.4 ns</td><td>52</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net48</td><td>500</td><td>22,581.2 ns</td><td>176.11 ns</td><td>156.12 ns</td><td>22,557.5 ns</td><td>53</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 2.2</td><td>1000</td><td>86,103.4 ns</td><td>143.93 ns</td><td>134.63 ns</td><td>86,105.3 ns</td><td>74</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 3.0</td><td>1000</td><td>57,530.5 ns</td><td>129.43 ns</td><td>114.74 ns</td><td>57,571.4 ns</td><td>67</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net472</td><td>1000</td><td>47,194.2 ns</td><td>648.23 ns</td><td>606.35 ns</td><td>47,461.8 ns</td><td>65</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net48</td><td>1000</td><td>47,273.3 ns</td><td>895.46 ns</td><td>793.80 ns</td><td>46,873.4 ns</td><td>65</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 2.2</td><td>2500</td><td>220,294.9 ns</td><td>1,065.10 ns</td><td>944.19 ns</td><td>220,417.3 ns</td><td>88</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 3.0</td><td>2500</td><td>156,521.8 ns</td><td>435.23 ns</td><td>407.12 ns</td><td>156,413.1 ns</td><td>84</td><td>-</td><td>-</td><td>-</td><td>1 B</td>
+</tr><tr><td>for():ImmutableList</td><td>net472</td><td>2500</td><td>136,222.1 ns</td><td>2,054.76 ns</td><td>1,922.02 ns</td><td>135,081.2 ns</td><td>82</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net48</td><td>2500</td><td>133,299.8 ns</td><td>265.49 ns</td><td>235.35 ns</td><td>133,195.6 ns</td><td>81</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 2.2</td><td>5000</td><td>452,982.2 ns</td><td>677.58 ns</td><td>633.81 ns</td><td>452,843.6 ns</td><td>94</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>.NET Core 3.0</td><td>5000</td><td>371,132.8 ns</td><td>410.30 ns</td><td>320.34 ns</td><td>371,108.9 ns</td><td>92</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net472</td><td>5000</td><td>282,011.0 ns</td><td>399.19 ns</td><td>353.87 ns</td><td>282,017.7 ns</td><td>90</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ImmutableList</td><td>net48</td><td>5000</td><td>281,347.8 ns</td><td>512.24 ns</td><td>427.74 ns</td><td>281,323.0 ns</td><td>90</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 2.2</td><td>100</td><td>4,613.4 ns</td><td>20.62 ns</td><td>19.29 ns</td><td>4,618.0 ns</td><td>27</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 3.0</td><td>100</td><td>2,700.8 ns</td><td>2.38 ns</td><td>2.23 ns</td><td>2,701.0 ns</td><td>16</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net472</td><td>100</td><td>1,668.5 ns</td><td>2.06 ns</td><td>1.83 ns</td><td>1,668.4 ns</td><td>10</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net48</td><td>100</td><td>1,642.7 ns</td><td>2.18 ns</td><td>1.93 ns</td><td>1,642.4 ns</td><td>9</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 2.2</td><td>500</td><td>21,817.7 ns</td><td>83.43 ns</td><td>78.04 ns</td><td>21,794.2 ns</td><td>52</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 3.0</td><td>500</td><td>14,451.7 ns</td><td>220.28 ns</td><td>206.05 ns</td><td>14,321.7 ns</td><td>44</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net472</td><td>500</td><td>8,298.1 ns</td><td>8.77 ns</td><td>7.77 ns</td><td>8,297.5 ns</td><td>38</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net48</td><td>500</td><td>8,281.6 ns</td><td>11.80 ns</td><td>11.03 ns</td><td>8,276.8 ns</td><td>38</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 2.2</td><td>1000</td><td>44,081.1 ns</td><td>142.13 ns</td><td>132.95 ns</td><td>44,091.8 ns</td><td>64</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 3.0</td><td>1000</td><td>26,703.4 ns</td><td>33.79 ns</td><td>31.61 ns</td><td>26,700.1 ns</td><td>55</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net472</td><td>1000</td><td>16,191.6 ns</td><td>23.60 ns</td><td>22.08 ns</td><td>16,185.6 ns</td><td>46</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net48</td><td>1000</td><td>15,995.5 ns</td><td>44.37 ns</td><td>41.51 ns</td><td>15,986.8 ns</td><td>46</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 2.2</td><td>2500</td><td>111,008.3 ns</td><td>198.17 ns</td><td>185.37 ns</td><td>110,973.2 ns</td><td>78</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 3.0</td><td>2500</td><td>67,844.1 ns</td><td>538.78 ns</td><td>503.98 ns</td><td>68,059.9 ns</td><td>69</td><td>-</td><td>-</td><td>-</td><td>1 B</td>
+</tr><tr><td>for():ObservableCollection</td><td>net472</td><td>2500</td><td>41,711.1 ns</td><td>48.48 ns</td><td>45.35 ns</td><td>41,692.5 ns</td><td>63</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net48</td><td>2500</td><td>42,395.9 ns</td><td>61.65 ns</td><td>57.67 ns</td><td>42,381.3 ns</td><td>64</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 2.2</td><td>5000</td><td>225,217.8 ns</td><td>2,975.75 ns</td><td>2,783.52 ns</td><td>227,039.1 ns</td><td>88</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>.NET Core 3.0</td><td>5000</td><td>150,162.8 ns</td><td>455.20 ns</td><td>425.79 ns</td><td>149,955.1 ns</td><td>83</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net472</td><td>5000</td><td>84,126.5 ns</td><td>278.62 ns</td><td>260.62 ns</td><td>84,032.7 ns</td><td>73</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ObservableCollection</td><td>net48</td><td>5000</td><td>83,369.6 ns</td><td>1,045.03 ns</td><td>977.52 ns</td><td>82,937.3 ns</td><td>73</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 2.2</td><td>100</td><td>4,993.0 ns</td><td>6.35 ns</td><td>5.63 ns</td><td>4,994.0 ns</td><td>28</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 3.0</td><td>100</td><td>3,011.4 ns</td><td>10.41 ns</td><td>9.23 ns</td><td>3,008.4 ns</td><td>18</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net472</td><td>100</td><td>1,984.7 ns</td><td>7.03 ns</td><td>6.58 ns</td><td>1,984.9 ns</td><td>12</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net48</td><td>100</td><td>2,021.5 ns</td><td>12.13 ns</td><td>11.34 ns</td><td>2,019.1 ns</td><td>13</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 2.2</td><td>500</td><td>22,827.4 ns</td><td>33.40 ns</td><td>31.25 ns</td><td>22,829.2 ns</td><td>53</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 3.0</td><td>500</td><td>15,941.2 ns</td><td>43.51 ns</td><td>33.97 ns</td><td>15,931.3 ns</td><td>46</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net472</td><td>500</td><td>10,047.8 ns</td><td>69.20 ns</td><td>64.73 ns</td><td>10,047.2 ns</td><td>41</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net48</td><td>500</td><td>10,070.2 ns</td><td>53.37 ns</td><td>47.31 ns</td><td>10,062.5 ns</td><td>41</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 2.2</td><td>1000</td><td>47,475.7 ns</td><td>397.85 ns</td><td>372.15 ns</td><td>47,560.3 ns</td><td>65</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 3.0</td><td>1000</td><td>32,638.6 ns</td><td>46.19 ns</td><td>40.95 ns</td><td>32,632.5 ns</td><td>58</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net472</td><td>1000</td><td>19,732.5 ns</td><td>47.13 ns</td><td>41.78 ns</td><td>19,741.0 ns</td><td>50</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net48</td><td>1000</td><td>19,891.5 ns</td><td>527.92 ns</td><td>806.19 ns</td><td>19,746.0 ns</td><td>50</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 2.2</td><td>2500</td><td>115,699.0 ns</td><td>227.39 ns</td><td>212.70 ns</td><td>115,691.9 ns</td><td>79</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 3.0</td><td>2500</td><td>74,928.3 ns</td><td>94.40 ns</td><td>83.69 ns</td><td>74,922.9 ns</td><td>70</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net472</td><td>2500</td><td>50,339.6 ns</td><td>239.79 ns</td><td>224.30 ns</td><td>50,270.6 ns</td><td>66</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net48</td><td>2500</td><td>66,819.1 ns</td><td>56.92 ns</td><td>50.45 ns</td><td>66,800.4 ns</td><td>69</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 2.2</td><td>5000</td><td>244,844.0 ns</td><td>2,436.75 ns</td><td>2,160.12 ns</td><td>245,743.0 ns</td><td>89</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>.NET Core 3.0</td><td>5000</td><td>159,501.2 ns</td><td>93.37 ns</td><td>72.90 ns</td><td>159,496.4 ns</td><td>85</td><td>-</td><td>-</td><td>-</td><td>2 B</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net472</td><td>5000</td><td>100,094.6 ns</td><td>337.65 ns</td><td>281.95 ns</td><td>100,090.7 ns</td><td>76</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>for():ReadOnlyCollection</td><td>net48</td><td>5000</td><td>99,572.3 ns</td><td>150.52 ns</td><td>133.44 ns</td><td>99,544.6 ns</td><td>76</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 2.2</td><td>100</td><td>6,511.6 ns</td><td>84.99 ns</td><td>79.50 ns</td><td>6,468.6 ns</td><td>32</td><td>0.0916</td><td>-</td><td>-</td><td>2296 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 3.0</td><td>100</td><td>5,891.9 ns</td><td>10.03 ns</td><td>9.38 ns</td><td>5,890.1 ns</td><td>31</td><td>0.2365</td><td>-</td><td>-</td><td>2296 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net472</td><td>100</td><td>5,646.6 ns</td><td>14.15 ns</td><td>13.23 ns</td><td>5,641.4 ns</td><td>30</td><td>1.0910</td><td>-</td><td>-</td><td>2304 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net48</td><td>100</td><td>5,422.0 ns</td><td>185.60 ns</td><td>220.94 ns</td><td>5,327.9 ns</td><td>29</td><td>1.0910</td><td>-</td><td>-</td><td>2304 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 2.2</td><td>500</td><td>33,205.9 ns</td><td>85.99 ns</td><td>80.44 ns</td><td>33,201.5 ns</td><td>59</td><td>0.4883</td><td>-</td><td>-</td><td>10576 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 3.0</td><td>500</td><td>33,669.5 ns</td><td>475.90 ns</td><td>445.16 ns</td><td>33,415.2 ns</td><td>59</td><td>1.1597</td><td>-</td><td>-</td><td>10576 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net472</td><td>500</td><td>29,009.0 ns</td><td>54.71 ns</td><td>51.18 ns</td><td>29,018.0 ns</td><td>56</td><td>5.0354</td><td>-</td><td>-</td><td>10618 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net48</td><td>500</td><td>29,242.2 ns</td><td>55.41 ns</td><td>51.83 ns</td><td>29,234.8 ns</td><td>56</td><td>5.0354</td><td>-</td><td>-</td><td>10618 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 2.2</td><td>1000</td><td>67,373.8 ns</td><td>120.74 ns</td><td>112.94 ns</td><td>67,332.3 ns</td><td>69</td><td>0.9766</td><td>-</td><td>-</td><td>22216 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 3.0</td><td>1000</td><td>63,777.7 ns</td><td>96.69 ns</td><td>90.44 ns</td><td>63,796.1 ns</td><td>68</td><td>2.3193</td><td>0.1221</td><td>-</td><td>22216 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net472</td><td>1000</td><td>58,440.5 ns</td><td>720.94 ns</td><td>674.36 ns</td><td>57,992.6 ns</td><td>67</td><td>10.4980</td><td>-</td><td>-</td><td>22262 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net48</td><td>1000</td><td>59,143.2 ns</td><td>111.11 ns</td><td>98.49 ns</td><td>59,135.5 ns</td><td>67</td><td>10.4980</td><td>-</td><td>-</td><td>22262 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 2.2</td><td>2500</td><td>197,539.5 ns</td><td>4,836.70 ns</td><td>14,261.13 ns</td><td>193,044.7 ns</td><td>87</td><td>2.1973</td><td>0.2441</td><td>-</td><td>56176 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 3.0</td><td>2500</td><td>164,468.7 ns</td><td>571.17 ns</td><td>476.95 ns</td><td>164,383.8 ns</td><td>86</td><td>6.5918</td><td>0.9766</td><td>-</td><td>56176 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net472</td><td>2500</td><td>151,738.2 ns</td><td>268.68 ns</td><td>224.36 ns</td><td>151,776.3 ns</td><td>83</td><td>26.1230</td><td>-</td><td>-</td><td>56336 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net48</td><td>2500</td><td>153,015.3 ns</td><td>254.57 ns</td><td>225.67 ns</td><td>153,057.2 ns</td><td>83</td><td>26.1230</td><td>-</td><td>-</td><td>56336 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 2.2</td><td>5000</td><td>488,729.6 ns</td><td>2,673.23 ns</td><td>2,500.54 ns</td><td>488,669.7 ns</td><td>95</td><td>27.3438</td><td>27.3438</td><td>27.3438</td><td>117062 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>.NET Core 3.0</td><td>5000</td><td>445,107.3 ns</td><td>6,741.92 ns</td><td>5,263.65 ns</td><td>445,766.0 ns</td><td>93</td><td>10.7422</td><td>10.7422</td><td>10.7422</td><td>117003 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net472</td><td>5000</td><td>356,031.8 ns</td><td>2,374.76 ns</td><td>2,221.36 ns</td><td>356,339.9 ns</td><td>91</td><td>33.2031</td><td>21.9727</td><td>21.9727</td><td>117382 B</td>
+</tr><tr><td>&#39;RETRIEVING COLLECTION:HashSet&#39;</td><td>net48</td><td>5000</td><td>350,540.6 ns</td><td>5,790.95 ns</td><td>5,416.86 ns</td><td>352,021.2 ns</td><td>91</td><td>33.6914</td><td>22.4609</td><td>22.4609</td><td>117337 B</td>
+</tr></tbody></table>
+</body>
+</html>
