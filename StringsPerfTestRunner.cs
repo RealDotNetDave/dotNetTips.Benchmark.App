@@ -14,7 +14,6 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using dotNetTips.Utility.Standard.Tester;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -76,18 +75,6 @@ namespace dotNetTips.Benchmark.App
         public void TestDecodingString03()
         {
             _consumer.Consume(Encoding.UTF7.GetString(_longTestStringEncodedUTF7));
-        }
-
-        [Benchmark(Description = "EMPTY STRING VALIDATION:IsNullOrEmpty()")]
-        public void TestEmptyStringValidation01()
-        {
-            _consumer.Consume(string.IsNullOrEmpty(this._testWord1));
-        }
-
-        [Benchmark(Description = "EMPTY STRING VALIDATION:IsNullOrWhitespace()")]
-        public void TestEmptyStringValidation02()
-        {
-            _consumer.Consume(string.IsNullOrWhiteSpace(this._testWord1));
         }
 
         [Benchmark(Description = "ENCODING STRING:Encoding.UTF32")]
@@ -154,23 +141,10 @@ namespace dotNetTips.Benchmark.App
             _consumer.Consume(sb.ToString());
         }
 
-        [Benchmark(Description = "STRING VALIDATION:Equals()")]
-        public void TestStringWithEquals01()
-        {
-            _consumer.Consume(this._testWord1.Equals(this._testWord2));
-        }
-
         [Benchmark(Description = "STRING VALIDATION:==")]
         public void TestStringWithEquals02()
         {
             _consumer.Consume(this._testWord1 == this._testWord2);
         }
-
-        [Benchmark(Description = "STRING VALIDATION:Equals(CurrentCultureIgnoreCase)")]
-        public void TestStringWithEquals03()
-        {
-            _consumer.Consume(_testWord1.Equals(_testWord2, StringComparison.CurrentCultureIgnoreCase));
-        }
-
     }
 }
