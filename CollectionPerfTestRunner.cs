@@ -22,16 +22,5 @@ namespace dotNetTips.Benchmark.App
         {
             _personCollection = new Collection<PersonProper>(RandomData.GeneratePersonCollection<PersonProper>(Count));
         }
-
-        [Benchmark(Description = "CREATION:for()")]
-        public void TestCreatingList01()
-        {
-            var collection = new List<PersonProper>();
-
-            for (int count = 0; count < _personCollection.Count; count++)
-            {
-                collection.Add(_personCollection[count]);
-            }
-        }
     }
 }
