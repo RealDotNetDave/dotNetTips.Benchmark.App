@@ -24,16 +24,16 @@ namespace dotNetTips.Benchmark.App
     {
 
         private const string StringBuilderFormat = "value={0} ";
-        private readonly int _collectionCount = 100;
+        private readonly int _collectionCount = 256;
         private readonly string _testWord1 = "rk3NlKKfVskL9brxuWytx2wm6";
         private readonly string _testWord2 = "JHaVoRDulOZLBrTrekYf5If8v";
+        private Consumer _consumer = new Consumer();
 
         private string _longTestString = "Parsing and formatting are the lifeblood of any modern web applications or services: take data off the wire,  parse it, manipulate it, format it back out. As such, in .NET Core 2.1 along with bringing up Span<T>, we're invested in the formatting and parsing of  primitives, from Int32 to DateTime. Many of those changes can be read about in my previous blog posts, but one of the key factors in enabling those performance improvements was in moving a lot of native code to managed. That may be counter-intuitive, in that it’s “common knowledge” that C code is  faster than C# code. However, in addition to the gap between them narrowing, having (mostly) safe C# code has made the code base easier to experiment  in, so whereas we may have been skittish about tweaking the native implementations, the community-at-large has dived head first into optimizing  these implementations wherever possible. That effort continues in full force in .NET Core 3.0, with some very nice rewards reaped.";
 
         private byte[] _longTestStringEncodedUTF32;
         private byte[] _longTestStringEncodedUTF7;
         private string[] _stringArray;
-        private Consumer _consumer = new Consumer();
 
         protected string LongTestString { get => this._longTestString; }
 
@@ -63,6 +63,12 @@ namespace dotNetTips.Benchmark.App
         public void TestCombineStrings02()
         {
             _consumer.Consume(string.Concat(_testWord1, _testWord2));
+        }
+
+        [Benchmark(Description = "COMBINE STRINGS:2 strings with string.Join()")]
+        public void TestCombineStrings03()
+        {
+            _consumer.Consume(string.Join(string.Empty, this._testWord1, this._testWord2));
         }
 
         [Benchmark(Description = "DECODING STRING:Encoding.UTF32")]
@@ -141,10 +147,17 @@ namespace dotNetTips.Benchmark.App
             _consumer.Consume(sb.ToString());
         }
 
+        [Benchmark(Description = "STRING VALIDATION:Equals()")]
+        public void TestStringWithEquals01()
+        {
+            _consumer.Consume(this._testWord1.Equals(this._testWord2));
+        }
+
         [Benchmark(Description = "STRING VALIDATION:==")]
         public void TestStringWithEquals02()
         {
             _consumer.Consume(this._testWord1 == this._testWord2);
         }
+
     }
 }
