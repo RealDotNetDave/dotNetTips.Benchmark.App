@@ -21,6 +21,6 @@
     <PackageReference Include="BenchmarkDotNet" Version="0.11.5.1171" />
     <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.11.5.1171" />
     <PackageReference Include="dotNetTips.Utility.Standard.Tester" Version="2019.8.31.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 </Project>
